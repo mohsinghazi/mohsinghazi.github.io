@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
+import React, { Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Sphere } from "@react-three/drei";
 import { pointsInner, pointsOuter } from "../../utils/particle";
+import CanvasLoader from "../Loader";
 
 const ParticleRing = () => {
   return (
@@ -12,10 +13,12 @@ const ParticleRing = () => {
         }}
         style={{ height: "100vh" }}
       >
-        <OrbitControls maxDistance={20} minDistance={10} />
-        <directionalLight />
-        <pointLight position={[-30, 0, -30]} power={10.0} />
-        <PointCircle />
+        <Suspense fallback={<CanvasLoader />}>
+          <OrbitControls maxDistance={20} minDistance={10} />
+          <directionalLight />
+          <pointLight position={[-30, 0, -30]} power={10.0} />
+          <PointCircle />
+        </Suspense>
       </Canvas>
     </div>
   );

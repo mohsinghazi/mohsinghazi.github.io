@@ -24,7 +24,7 @@ const About = () => {
         directly with clients to develop scalable, effective solutions that
         address real-world issues.
       </motion.p>
-      <div className="flex flex-wrap gap-10 mt-20">
+      <div className="flex flex-wrap justify-center gap-10 mt-20">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}

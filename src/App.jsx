@@ -1,24 +1,27 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
+import { isMobile } from "react-device-detect";
 import {
   About,
   Contact,
   Experience,
-  Hero,
   Navbar,
   Tech,
   Works,
   StarsCanvas,
+  Loading,
 } from "./components";
+const Hero = React.lazy(() => import("./components/Hero"));
+const MobileHero = React.lazy(() => import("./components/MobileHero"));
 
 const App = () => {
   return (
     <BrowserRouter>
       <div className="relative z-0 bg-primary">
-        <div className="">
-          <Navbar />
-          <Hero />
-        </div>
+        <Navbar />
+        <Suspense fallback={<Loading />}>
+          {isMobile ? <MobileHero /> : <Hero />}
+        </Suspense>
         <About />
         <Experience />
         <Tech />
