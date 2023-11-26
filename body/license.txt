@@ -1,0 +1,11 @@
+Model Information:
+* title:	Free Mixamo retextured Model
+* source:	https://sketchfab.com/3d-models/free-mixamo-retextured-model-62990b050faf48dd8590d5d15872857c
+* author:	JonnyMANSON (https://sketchfab.com/JonnyMANSON)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Free Mixamo retextured Model" (https://sketchfab.com/3d-models/free-mixamo-retextured-model-62990b050faf48dd8590d5d15872857c) by JonnyMANSON (https://sketchfab.com/JonnyMANSON) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
