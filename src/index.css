@@ -224,3 +224,40 @@ body::-webkit-scrollbar-thumb {
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
   }
 }
+
+.driver-popover.driverjs-theme {
+  background-color: #804dee;
+  color: #fff;
+}
+
+.driver-popover.driverjs-theme .driver-popover-title {
+  font-size: 18px;
+}
+
+.driver-popover.driverjs-theme .driver-popover-title,
+.driver-popover.driverjs-theme .driver-popover-description,
+.driver-popover.driverjs-theme .driver-popover-progress-text {
+  color: #fff;
+}
+
+.driver-popover.driverjs-theme button {
+  flex: 1;
+  text-align: center;
+  background-color: #fff;
+  color: #804dee;
+  border: 2px solid #f1f1f1;
+  text-shadow: none;
+  font-size: 14px;
+  padding: 5px 8px;
+  border-radius: 6px;
+}
+
+.driver-popover.driverjs-theme button:hover {
+  background-color: #804dee;
+  color: #ffffff;
+}
+
+.driver-popover.driverjs-theme .driver-popover-navigation-btns {
+  justify-content: space-between;
+  gap: 3px;
+}

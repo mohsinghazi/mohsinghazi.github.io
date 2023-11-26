@@ -26,7 +26,7 @@ const Navbar = () => {
             className="object-contain w-12 h-4 scale-150"
           />
         </Link>
-        <ul className="flex-row hidden gap-10 list-none sm:flex">
+        <ul id="menu" className="flex-row hidden gap-10 list-none sm:flex">
           {navLinks.map((link) => (
             <li
               key={link.id}

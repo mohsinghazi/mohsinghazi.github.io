@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
 
 import { styles } from "../style";
 import { EarthCanvas } from "./canvas";
@@ -14,7 +13,6 @@ const Contact = () => {
     email: "",
     message: "",
   });
-
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -27,41 +25,37 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    const formData = new FormData();
+    formData.append("name", form.name);
+    formData.append("email", form.email);
+    formData.append("message", form.message);
+    formData.append("access_key", import.meta.env.VITE_APP_KEY);
 
-    emailjs
-      .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: "MD MOHSIN GHAZI",
-          from_email: form.email,
-          to_email: "mdmohsinghazi@yahoo.com",
-          message: form.message,
-        },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    }).then((res) => res.json());
 
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
+    if (res.success) {
+      console.log("Success", res);
+      setLoading(false);
+      alert("Thank you. I will get back to you as soon as possible.");
 
-          alert("Ahh, something went wrong. Please try again.");
-        }
-      );
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } else {
+      console.log("Error", res);
+      setLoading(false);
+      console.error(error);
+
+      alert("Ahh, something went wrong. Please try again.");
+    }
   };
 
   return (
